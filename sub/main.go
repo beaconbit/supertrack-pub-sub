@@ -9,6 +9,7 @@ import (
     "time"
 
     "github.com/nats-io/nats.go"
+    "github.com/google/uuid"
     _ "github.com/lib/pq"
 )
 
@@ -24,28 +25,41 @@ type Message struct {
   DFI       int       `json:"dfi"`
 }
 
-type UniqueMessage struct {
-  UUID string
-  Timestamp time.Time
-  Label     string  
-  Value     int    
-  Factor    float32
-  Reading   float32 
-  Measurement float32
-  Metric    int      
-  DFI       int      
-}
-
 type Load struct {
   UUID 		string
+  CBW		int
+  Pocket	int
   Entered 	time.Time
   Exited 	time.Time
   Delta 	time.Duration
 }
 
+func liveStateUpdater(incoming <-chan Load) {
+    db, err := sql.Open("postgres", "postgres://admin:password123@postgres:5432/eventlog?sslmode=disable")
+    if err != nil {
+        log.Fatal("postgres connect:", err)
+    }
+    defer db.Close()
+
+    if err := db.Ping(); err != nil {
+        log.Fatal("postgres ping:", err)
+    }
+    fmt.Println("Connected to Postgres")
+    for {
+	select {
+	case e := <-incoming:
+	  // recieve struct 
+	  A.UUID = e.UUID
+	  A.Entered = e.Timestamp
+	  B.Exited = A.Entered
+	  B.Delta = B.Exited.Sub(B.Entered)
+	}
+    }
+}
+
 func pocketStatusUpdater(
-  incoming <-chan UniqueMessage, 
-  outgoing chan<- UniqueMessage, 
+  incomingCh <-chan Load, 
+  outgoingCh chan<- Load, 
   tableName string) {
     db, err := sql.Open("postgres", "postgres://admin:password123@postgres:5432/eventlog?sslmode=disable")
     if err != nil {
@@ -57,20 +71,54 @@ func pocketStatusUpdater(
         log.Fatal("postgres ping:", err)
     }
     fmt.Println("Connected to Postgres")
+    var curr Load
+    var prev Load
 
     // listen for messages
     for {
 	select {
-	case e := <-events:
-	// update struct 
-	// write to database
-	// emit message to next channel
+	case e := <-incomingCh:
+	  if e.Pocket == 16 {
+	    switch e.CBW {
+	    case 1:
+	      cbw1updateCh <- e
+	    case 2:
+	      cbw2updateCh <- e
+	    case 3:
+	      cbw3updateCh <- e
+	    }
 
+	  }
+	  // update struct 
+	  curr.UUID = e.UUID
+	  curr.CBW = e.CBW
+	  curr.Pocket = e.Pocket
+	  curr.Entered = e.Timestamp
+	  prev.Exited = curr.Entered
+	  prev.Delta = prev.Exited.Sub(prev.Entered)
+	  prev.Pocket++
+
+
+	  // write to database
+	  log.Println("implement writing to database %s\n%v", tableName, prev)
+	  // emit message to next channel
+	  outgoingCh <- prev
+
+	  prev.UUID = A.UUID
+	  prev.CBW = A.CBW
+	  prev.Pocket = A.Pocket
+	  prev.Entered = A.Entered
+	  prev.Exited = nil
+	  prev.Delta = nil
+
+	  curr.UUID = nil
+	  curr.CBW = nil
+	  curr.Pocket = nil
+	  curr.Entered = nil
+	  curr.Exited = nil
+	  curr.Delta = nil
 	}
     }
-
-
-
 }
 
 func main() {
@@ -142,11 +190,151 @@ func main() {
 	    return
 	}
 
+	// check which cbw it dropped into
+	switch msg.Metric {
+	case 1:
+	  cbw1pocket1Ch <- Load{
+	    UUID: uuid.New(),
+	    CBW: 1,
+	    Pocket: 1,
+	    Entered: msg.Timestamp,
+	    Exited 	nil,
+	    Delta 	nil,
+	  }
+	case 2:
+	  cbw2pocket1Ch <- Load{
+	    UUID: uuid.New(),
+	    CBW: 2,
+	    Pocket: 1,
+	    Entered: msg.Timestamp,
+	    Exited 	nil,
+	    Delta 	nil,
+	  }
+	case 5:
+	  cbw3pocket1Ch <- Load{
+	    UUID: uuid.New(),
+	    CBW: 3,
+	    Pocket: 1,
+	    Entered: msg.Timestamp,
+	    Exited 	nil,
+	    Delta 	nil,
+	  }
+	}
+
         fmt.Printf("Inserted event: %s (%s)\n", msg.Label, msg.Timestamp.Format(time.RFC3339))
     })
     if err != nil {
         log.Fatal("subscribe:", err)
     }
+
+    dead := make(chan Load, 1)
+
+    cbw1updateCh := make(chan Load, 1)
+    cbw2updateCh := make(chan Load, 1)
+    cbw3updateCh := make(chan Load, 1)
+
+    cbw1pocket1Ch := make(chan Load, 1)
+    cbw1pocket2Ch := make(chan Load, 1)
+    cbw1pocket3Ch := make(chan Load, 1)
+    cbw1pocket4Ch := make(chan Load, 1)
+    cbw1pocket5Ch := make(chan Load, 1)
+    cbw1pocket6Ch := make(chan Load, 1)
+    cbw1pocket7Ch := make(chan Load, 1)
+    cbw1pocket8Ch := make(chan Load, 1)
+    cbw1pocket9Ch := make(chan Load, 1)
+    cbw1pocket10Ch := make(chan Load, 1)
+    cbw1pocket11Ch := make(chan Load, 1)
+    cbw1pocket12Ch := make(chan Load, 1)
+    cbw1pocket13Ch := make(chan Load, 1)
+    cbw1pocket14Ch := make(chan Load, 1)
+    cbw1pocket15Ch := make(chan Load, 1)
+    cbw1pocket16Ch := make(chan Load, 1)
+    cbw1pocket17Ch := make(chan Load, 1)
+    cbw1pocket18Ch := make(chan Load, 1)
+    cbw1pocket19Ch := make(chan Load, 1)
+    cbw1pocket20Ch := make(chan Load, 1)
+    cbw1pocket21Ch := make(chan Load, 1)
+    cbw1pocket22Ch := make(chan Load, 1)
+    cbw1pocket23Ch := make(chan Load, 1)
+    cbw1pocket24Ch := make(chan Load, 1)
+    cbw1pocket25Ch := make(chan Load, 1)
+    cbw1pocket26Ch := make(chan Load, 1)
+    cbw1pocket27Ch := make(chan Load, 1)
+    cbw1pocket28Ch := make(chan Load, 1)
+    cbw1pocket29Ch := make(chan Load, 1)
+    cbw1pocket30Ch := make(chan Load, 1)
+    cbw1pocket31Ch := make(chan Load, 1)
+    cbw1pocket32Ch := make(chan Load, 1)
+
+    cbw2pocket1Ch := make(chan Load, 1)
+    cbw2pocket2Ch := make(chan Load, 1)
+    cbw2pocket3Ch := make(chan Load, 1)
+    cbw2pocket4Ch := make(chan Load, 1)
+    cbw2pocket5Ch := make(chan Load, 1)
+    cbw2pocket6Ch := make(chan Load, 1)
+    cbw2pocket7Ch := make(chan Load, 1)
+    cbw2pocket8Ch := make(chan Load, 1)
+    cbw2pocket9Ch := make(chan Load, 1)
+    cbw2pocket10Ch := make(chan Load, 1)
+    cbw2pocket11Ch := make(chan Load, 1)
+    cbw2pocket12Ch := make(chan Load, 1)
+    cbw2pocket13Ch := make(chan Load, 1)
+    cbw2pocket14Ch := make(chan Load, 1)
+    cbw2pocket15Ch := make(chan Load, 1)
+    cbw2pocket16Ch := make(chan Load, 1)
+    cbw2pocket17Ch := make(chan Load, 1)
+    cbw2pocket18Ch := make(chan Load, 1)
+    cbw2pocket19Ch := make(chan Load, 1)
+    cbw2pocket20Ch := make(chan Load, 1)
+    cbw2pocket21Ch := make(chan Load, 1)
+    cbw2pocket22Ch := make(chan Load, 1)
+    cbw2pocket23Ch := make(chan Load, 1)
+    cbw2pocket24Ch := make(chan Load, 1)
+    cbw2pocket25Ch := make(chan Load, 1)
+    cbw2pocket26Ch := make(chan Load, 1)
+    cbw2pocket27Ch := make(chan Load, 1)
+    cbw2pocket28Ch := make(chan Load, 1)
+    cbw2pocket29Ch := make(chan Load, 1)
+    cbw2pocket30Ch := make(chan Load, 1)
+    cbw2pocket31Ch := make(chan Load, 1)
+    cbw2pocket32Ch := make(chan Load, 1)
+
+    cbw3pocket1Ch := make(chan Load, 1)
+    cbw3pocket2Ch := make(chan Load, 1)
+    cbw3pocket3Ch := make(chan Load, 1)
+    cbw3pocket4Ch := make(chan Load, 1)
+    cbw3pocket5Ch := make(chan Load, 1)
+    cbw3pocket6Ch := make(chan Load, 1)
+    cbw3pocket7Ch := make(chan Load, 1)
+    cbw3pocket8Ch := make(chan Load, 1)
+    cbw3pocket9Ch := make(chan Load, 1)
+    cbw3pocket10Ch := make(chan Load, 1)
+    cbw3pocket11Ch := make(chan Load, 1)
+    cbw3pocket12Ch := make(chan Load, 1)
+    cbw3pocket13Ch := make(chan Load, 1)
+    cbw3pocket14Ch := make(chan Load, 1)
+    cbw3pocket15Ch := make(chan Load, 1)
+    cbw3pocket16Ch := make(chan Load, 1)
+    cbw3pocket17Ch := make(chan Load, 1)
+    cbw3pocket18Ch := make(chan Load, 1)
+    cbw3pocket19Ch := make(chan Load, 1)
+    cbw3pocket20Ch := make(chan Load, 1)
+    cbw3pocket21Ch := make(chan Load, 1)
+    cbw3pocket22Ch := make(chan Load, 1)
+    cbw3pocket23Ch := make(chan Load, 1)
+    cbw3pocket24Ch := make(chan Load, 1)
+    cbw3pocket25Ch := make(chan Load, 1)
+    cbw3pocket26Ch := make(chan Load, 1)
+    cbw3pocket27Ch := make(chan Load, 1)
+    cbw3pocket28Ch := make(chan Load, 1)
+    cbw3pocket29Ch := make(chan Load, 1)
+    cbw3pocket30Ch := make(chan Load, 1)
+    cbw3pocket31Ch := make(chan Load, 1)
+    cbw3pocket32Ch := make(chan Load, 1)
+
+    go liveStateUpdater(cbw1updateCh)
+    go liveStateUpdater(cbw2updateCh)
+    go liveStateUpdater(cbw3updateCh)
 
     go pocketStatusUpdater(cbw1pocket1Ch, cbw1pocket2Ch, "cbw1pocket1")
     go pocketStatusUpdater(cbw1pocket2Ch, cbw1pocket3Ch, "cbw1pocket2")
