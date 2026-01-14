@@ -13,6 +13,13 @@ import (
     _ "github.com/lib/pq"
 )
 
+
+var dead = make(chan Load, 1)
+
+var cbw1updateCh = make(chan Load, 1)
+var cbw2updateCh = make(chan Load, 1)
+var cbw3updateCh = make(chan Load, 1)
+
 // Your message struct
 type Message struct {
   Timestamp time.Time `json:"timestamp"`
@@ -26,15 +33,16 @@ type Message struct {
 }
 
 type Load struct {
-  UUID 		string
+  UUID 		uuid.UUID
   CBW		int
   Pocket	int
+  Product	int
   Entered 	time.Time
   Exited 	time.Time
   Delta 	time.Duration
 }
 
-func liveStateUpdater(incoming <-chan Load) {
+func liveStateUpdater(incomingCh <-chan Load) {
     db, err := sql.Open("postgres", "postgres://admin:password123@postgres:5432/eventlog?sslmode=disable")
     if err != nil {
         log.Fatal("postgres connect:", err)
@@ -47,12 +55,9 @@ func liveStateUpdater(incoming <-chan Load) {
     fmt.Println("Connected to Postgres")
     for {
 	select {
-	case e := <-incoming:
+	case e := <-incomingCh:
 	  // recieve struct 
-	  A.UUID = e.UUID
-	  A.Entered = e.Timestamp
-	  B.Exited = A.Entered
-	  B.Delta = B.Exited.Sub(B.Entered)
+	  fmt.Println("timer started on %v", e)
 	}
     }
 }
@@ -92,147 +97,63 @@ func pocketStatusUpdater(
 	  // update struct 
 	  curr.UUID = e.UUID
 	  curr.CBW = e.CBW
+	  curr.Product = e.Product
 	  curr.Pocket = e.Pocket
-	  curr.Entered = e.Timestamp
+	  curr.Entered = e.Entered
 	  prev.Exited = curr.Entered
 	  prev.Delta = prev.Exited.Sub(prev.Entered)
 	  prev.Pocket++
 
-
-	  // write to database
-	  log.Println("implement writing to database %s\n%v", tableName, prev)
 	  // emit message to next channel
 	  outgoingCh <- prev
 
-	  prev.UUID = A.UUID
-	  prev.CBW = A.CBW
-	  prev.Pocket = A.Pocket
-	  prev.Entered = A.Entered
-	  prev.Exited = nil
-	  prev.Delta = nil
+	  prev.UUID = curr.UUID
+	  prev.CBW = curr.CBW
+	  prev.Product = curr.Product
+	  prev.Pocket = curr.Pocket
+	  prev.Entered = curr.Entered
+	  prev.Exited = time.Time{}
+	  prev.Delta = 0
 
-	  curr.UUID = nil
-	  curr.CBW = nil
-	  curr.Pocket = nil
-	  curr.Entered = nil
-	  curr.Exited = nil
-	  curr.Delta = nil
+	  curr.UUID = uuid.Nil
+	  curr.CBW = 0
+	  curr.Product = 0
+	  curr.Pocket = 0
+	  curr.Entered = time.Time{}
+	  curr.Exited = time.Time{}
+	  curr.Delta = 0
+
+	  // write to database
+	  query := fmt.Sprintf(`
+	  	INSERT INTO %s (
+		  id,
+		  entered,
+		  exited,
+		  delta_seconds,
+		  product
+		) VALUES ($1, $2, $3, $4, $5)
+		  `, pg.QuoteIdentifier(tableName))
+
+	  _, err := db.ExecContext(
+	      context.Background(),
+	      query,
+	      prev.UUID,
+	      prev.Entered,
+	      prev.Exited,
+	      prev.Delta,
+	      prev.Product
+	  )
+	  if err != nil {
+	      log.Println("db insert error:", err)
+	      return
+	  }
+
+	  log.Println("writing to database %s\n%v", tableName, prev)
 	}
     }
 }
 
 func main() {
-    // --- Connect to Postgres ---
-    db, err := sql.Open("postgres", "postgres://admin:password123@postgres:5432/eventlog?sslmode=disable")
-    if err != nil {
-        log.Fatal("postgres connect:", err)
-    }
-    defer db.Close()
-
-    // Make sure DB is reachable
-    if err := db.Ping(); err != nil {
-        log.Fatal("postgres ping:", err)
-    }
-    fmt.Println("Connected to Postgres")
-
-
-    // --- Connect to NATS ---
-    nc, err := nats.Connect("nats://nats:4222")
-    if err != nil {
-        log.Fatal("nats connect:", err)
-    }
-    defer nc.Close()
-
-    fmt.Println("Connected to NATS, waiting for messages...")
-
-    // --- Subscribe ---
-    _, err = nc.Subscribe("eventstream.>", func(m *nats.Msg) {
-        var msg Message
-
-        // Decode JSON
-        if err := json.Unmarshal(m.Data, &msg); err != nil {
-            log.Println("decode error:", err)
-            return
-        }
-	fmt.Println("message read from nats")
-	fmt.Printf("%v", msg)
-
-	// send event over go chan to loop 1 subscriber
-
-	// insert into postgres
-	_, err := db.ExecContext(
-	    context.Background(),
-	    `INSERT INTO general (
-		timestamp,
-		source_mac,
-		source_ip,
-		value,
-		factor,
-		reading,
-		measurement,
-		metric,
-		data_field_index
-	    ) VALUES (
-		$1, $2, $3, $4, $5, $6, $7, $8, $9
-	    )`,
-	    msg.Timestamp.Unix(),
-	    "00:00:00:00",
-	    "0.0.0.0",
-	    msg.Value,
-	    msg.Factor,
-	    msg.Reading,
-	    msg.Measurement,
-	    msg.Metric,
-	    msg.DFI,
-	)
-	if err != nil {
-	    log.Println("db insert error:", err)
-	    return
-	}
-
-	// check which cbw it dropped into
-	switch msg.Metric {
-	case 1:
-	  cbw1pocket1Ch <- Load{
-	    UUID: uuid.New(),
-	    CBW: 1,
-	    Pocket: 1,
-	    Entered: msg.Timestamp,
-	    Exited 	nil,
-	    Delta 	nil,
-	  }
-	case 2:
-	  cbw2pocket1Ch <- Load{
-	    UUID: uuid.New(),
-	    CBW: 2,
-	    Pocket: 1,
-	    Entered: msg.Timestamp,
-	    Exited 	nil,
-	    Delta 	nil,
-	  }
-	case 5:
-	  cbw3pocket1Ch <- Load{
-	    UUID: uuid.New(),
-	    CBW: 3,
-	    Pocket: 1,
-	    Entered: msg.Timestamp,
-	    Exited 	nil,
-	    Delta 	nil,
-	  }
-	}
-
-        fmt.Printf("Inserted event: %s (%s)\n", msg.Label, msg.Timestamp.Format(time.RFC3339))
-    })
-    if err != nil {
-        log.Fatal("subscribe:", err)
-    }
-
-    dead := make(chan Load, 1)
-
-    cbw1updateCh := make(chan Load, 1)
-    cbw2updateCh := make(chan Load, 1)
-    cbw3updateCh := make(chan Load, 1)
-
     cbw1pocket1Ch := make(chan Load, 1)
     cbw1pocket2Ch := make(chan Load, 1)
     cbw1pocket3Ch := make(chan Load, 1)
@@ -331,6 +252,114 @@ func main() {
     cbw3pocket30Ch := make(chan Load, 1)
     cbw3pocket31Ch := make(chan Load, 1)
     cbw3pocket32Ch := make(chan Load, 1)
+    // --- Connect to Postgres ---
+    db, err := sql.Open("postgres", "postgres://admin:password123@postgres:5432/eventlog?sslmode=disable")
+    if err != nil {
+        log.Fatal("postgres connect:", err)
+    }
+    defer db.Close()
+
+    // Make sure DB is reachable
+    if err := db.Ping(); err != nil {
+        log.Fatal("postgres ping:", err)
+    }
+    fmt.Println("Connected to Postgres")
+
+
+    // --- Connect to NATS ---
+    nc, err := nats.Connect("nats://nats:4222")
+    if err != nil {
+        log.Fatal("nats connect:", err)
+    }
+    defer nc.Close()
+
+    fmt.Println("Connected to NATS, waiting for messages...")
+
+    // --- Subscribe ---
+    _, err = nc.Subscribe("eventstream.>", func(m *nats.Msg) {
+        var msg Message
+
+        // Decode JSON
+        if err := json.Unmarshal(m.Data, &msg); err != nil {
+            log.Println("decode error:", err)
+            return
+        }
+	fmt.Println("message read from nats")
+	fmt.Printf("%v", msg)
+
+	// send event over go chan to loop 1 subscriber
+
+	// insert into postgres
+	_, err := db.ExecContext(
+	    context.Background(),
+	    `INSERT INTO general (
+		timestamp,
+		source_mac,
+		source_ip,
+		value,
+		factor,
+		reading,
+		measurement,
+		metric,
+		data_field_index
+	    ) VALUES (
+		$1, $2, $3, $4, $5, $6, $7, $8, $9
+	    )`,
+	    msg.Timestamp.Unix(),
+	    "00:00:00:00",
+	    "0.0.0.0",
+	    msg.Value,
+	    msg.Factor,
+	    msg.Reading,
+	    msg.Measurement,
+	    msg.Metric,
+	    msg.DFI,
+	)
+	if err != nil {
+	    log.Println("db insert error:", err)
+	    return
+	}
+
+	// check which cbw it dropped into
+	switch msg.Metric {
+	case 1:
+	  cbw1pocket1Ch <- Load{
+	    UUID: uuid.New(),
+	    CBW: 1,
+	    Pocket: 1,
+	    Product: msg.Value,
+	    Entered: msg.Timestamp,
+	    Exited: 	time.Time{},
+	    Delta: 	0,
+	  }
+	case 2:
+	  cbw2pocket1Ch <- Load{
+	    UUID: uuid.New(),
+	    CBW: 2,
+	    Pocket: 1,
+	    Product: msg.Value,
+	    Entered: msg.Timestamp,
+	    Exited: 	time.Time{},
+	    Delta: 	0,
+	  }
+	case 5:
+	  cbw3pocket1Ch <- Load{
+	    UUID: uuid.New(),
+	    CBW: 3,
+	    Pocket: 1,
+	    Product: msg.Value,
+	    Entered: msg.Timestamp,
+	    Exited: 	time.Time{},
+	    Delta: 	0,
+	  }
+	}
+
+        fmt.Printf("Inserted event: %s (%s)\n", msg.Label, msg.Timestamp.Format(time.RFC3339))
+    })
+    if err != nil {
+        log.Fatal("subscribe:", err)
+    }
+
 
     go liveStateUpdater(cbw1updateCh)
     go liveStateUpdater(cbw2updateCh)
