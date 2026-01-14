@@ -42,7 +42,7 @@ type Load struct {
   Delta 	time.Duration
 }
 
-func liveStateUpdater(incomingCh <-chan Load) {
+func liveStateUpdater(incomingCh <-chan Load, tableName string) {
     db, err := sql.Open("postgres", "postgres://admin:password123@postgres:5432/eventlog?sslmode=disable")
     if err != nil {
         log.Fatal("postgres connect:", err)
@@ -53,13 +53,59 @@ func liveStateUpdater(incomingCh <-chan Load) {
         log.Fatal("postgres ping:", err)
     }
     fmt.Println("Connected to Postgres")
+    hasLoad := false
+    var id uuid.UUID
+    var entered time.Time
+    var product int
+    var start time.Time
     for {
 	select {
 	case e := <-incomingCh:
-	  // recieve struct 
-	  fmt.Println("timer started on %v", e)
+	    query := fmt.Sprintf(`
+		  TRUNCATE TABLE %s,
+		    `, tableName)
+	    _, err := db.ExecContext(context.Background(), query)
+	    if err != nil {
+		log.Println("db insert error:", err)
+	    }
+	    hasLoad = true
+	    id = e.UUID
+	    entered = e.Entered
+	    product = e.Product
+	    start = time.Now()
+	case <-ticker.C:
+	    if hasLoad {
+		elapsed := time.Since(start).Seconds()
+		// sanity check for when the tunnel is off
+		if elapsed > 3600 { hasLoad = false }
+		query := fmt.Sprintf(`
+		      INSERT INTO %s (
+			id,
+			entered,
+			delta_seconds,
+			product
+		      ) VALUES ($1, $2, $3, $4)
+			`, tableName)
+
+		_, err := db.ExecContext(
+		    context.Background(),
+		    query,
+		    id,
+		    entered,
+		    elapsed,
+		    product,
+		)
+		if err != nil {
+		    log.Println("db insert error:", err)
+		}
+	    }
+	default:
+	    time.Sleep(time.Second)
 	}
     }
+
+
+
 }
 
 func pocketStatusUpdater(
@@ -132,7 +178,7 @@ func pocketStatusUpdater(
 		  delta_seconds,
 		  product
 		) VALUES ($1, $2, $3, $4, $5)
-		  `, pg.QuoteIdentifier(tableName))
+		  `, tableName)
 
 	  _, err := db.ExecContext(
 	      context.Background(),
@@ -141,7 +187,7 @@ func pocketStatusUpdater(
 	      prev.Entered,
 	      prev.Exited,
 	      prev.Delta,
-	      prev.Product
+	      prev.Product,
 	  )
 	  if err != nil {
 	      log.Println("db insert error:", err)
@@ -361,9 +407,9 @@ func main() {
     }
 
 
-    go liveStateUpdater(cbw1updateCh)
-    go liveStateUpdater(cbw2updateCh)
-    go liveStateUpdater(cbw3updateCh)
+    go liveStateUpdater(cbw1updateCh, "livestatuscbw1")
+    go liveStateUpdater(cbw2updateCh, "livestatuscbw2")
+    go liveStateUpdater(cbw3updateCh, "livestatuscbw3")
 
     go pocketStatusUpdater(cbw1pocket1Ch, cbw1pocket2Ch, "cbw1pocket1")
     go pocketStatusUpdater(cbw1pocket2Ch, cbw1pocket3Ch, "cbw1pocket2")
