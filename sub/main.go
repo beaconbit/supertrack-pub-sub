@@ -53,6 +53,8 @@ func liveStateUpdater(incomingCh <-chan Load, tableName string) {
         log.Fatal("postgres ping:", err)
     }
     fmt.Println("Connected to Postgres")
+    ticker := time.NewTicker(1 * time.Second)
+    defer ticker.Stop()
     hasLoad := false
     var id uuid.UUID
     var entered time.Time
