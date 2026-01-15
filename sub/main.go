@@ -125,12 +125,14 @@ func pocketStatusUpdater(
     }
     fmt.Println("Connected to Postgres")
     var curr Load
+    var temp Load
     var prev Load
 
     // listen for messages
     for {
 	select {
 	case e := <-incomingCh:
+	  log.Println(tableName, " loop received msg: ", e)
 	  if e.Pocket == 16 {
 	    switch e.CBW {
 	    case 1:
@@ -146,57 +148,61 @@ func pocketStatusUpdater(
 	  curr.UUID = e.UUID
 	  curr.CBW = e.CBW
 	  curr.Product = e.Product
-	  curr.Pocket = e.Pocket
+	  curr.Pocket = e.Pocket + 1
 	  curr.Entered = e.Entered
+
 	  prev.Exited = curr.Entered
 	  prev.Delta = prev.Exited.Sub(prev.Entered)
-	  prev.Pocket++
 
-	  // emit message to next channel
-	  outgoingCh <- prev
+	  log.Println(tableName, " current: ", curr)
+	  log.Println(tableName, " prev: ", prev)
+	  if !curr.Entered.IsZero() && !prev.Entered.IsZero() {
+	      // if there's no missing info
+	      temp.UUID = prev.UUID
+	      temp.CBW = prev.CBW
+	      temp.Pocket = prev.Pocket
+	      temp.Product = prev.Product
+	      temp.Entered = prev.Entered
+	      temp.Exited = curr.Entered
+	      temp.Delta = curr.Entered.Sub(prev.Entered)
+	      // emit message to next channel
+	      log.Println(tableName, " emitting: ", temp)
+	      outgoingCh <- temp
+	      // write to database
+	      query := fmt.Sprintf(`
+		    INSERT INTO %s (
+		      id,
+		      entered,
+		      exited,
+		      delta_seconds,
+		      product
+		    ) VALUES ($1, $2, $3, $4, $5)
+		      `, tableName)
 
+	      _, err := db.ExecContext(
+		  context.Background(),
+		  query,
+		  temp.UUID,
+		  temp.Entered.Unix(),
+		  temp.Exited.Unix(),
+		  temp.Delta,
+		  temp.Product,
+	      )
+	      if err != nil {
+		  log.Println("db insert error:", err)
+		  return
+	      }
+	      log.Println("writing to database ", tableName, "\n", temp)
+	  } else {
+		  log.Println("not writing to database ", tableName, "\n", "maybe curr failed: ", curr, "\nmaybe prev failed: ", prev)
+	  }
 	  prev.UUID = curr.UUID
 	  prev.CBW = curr.CBW
-	  prev.Product = curr.Product
 	  prev.Pocket = curr.Pocket
+	  prev.Product = curr.Product
 	  prev.Entered = curr.Entered
-	  prev.Exited = time.Time{}
-	  prev.Delta = 0
+	  log.Println("\n final status before next message arrives: \ncurr: ", curr, "\nprev: ", prev)
 
-	  curr.UUID = uuid.Nil
-	  curr.CBW = 0
-	  curr.Product = 0
-	  curr.Pocket = 0
-	  curr.Entered = time.Time{}
-	  curr.Exited = time.Time{}
-	  curr.Delta = 0
-
-	  // write to database
-	  query := fmt.Sprintf(`
-	  	INSERT INTO %s (
-		  id,
-		  entered,
-		  exited,
-		  delta_seconds,
-		  product
-		) VALUES ($1, $2, $3, $4, $5)
-		  `, tableName)
-
-	  _, err := db.ExecContext(
-	      context.Background(),
-	      query,
-	      prev.UUID,
-	      prev.Entered.Unix(),
-	      prev.Exited.Unix(),
-	      prev.Delta,
-	      prev.Product,
-	  )
-	  if err != nil {
-	      log.Println("db insert error:", err)
-	      return
-	  }
-
-	  log.Println("writing to database ", tableName, "\n", prev)
 	}
     }
 }
@@ -371,6 +377,7 @@ func main() {
 	// check which cbw it dropped into
 	switch msg.Metric {
 	case 1:
+	  log.Println("emitting msg to cbw1pocket1Ch", msg)
 	  cbw1pocket1Ch <- Load{
 	    UUID: uuid.New(),
 	    CBW: 1,
@@ -381,6 +388,7 @@ func main() {
 	    Delta: 	0,
 	  }
 	case 2:
+	  log.Println("emitting msg to cbw2pocket1Ch", msg)
 	  cbw2pocket1Ch <- Load{
 	    UUID: uuid.New(),
 	    CBW: 2,
@@ -391,6 +399,7 @@ func main() {
 	    Delta: 	0,
 	  }
 	case 5:
+	  log.Println("emitting msg to cbw3pocket1Ch", msg)
 	  cbw3pocket1Ch <- Load{
 	    UUID: uuid.New(),
 	    CBW: 3,

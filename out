@@ -1,654 +1,223 @@
-postgres-1  | 
-postgres-1  | PostgreSQL Database directory appears to contain a database; Skipping initialization
-postgres-1  | 
-postgres-1  | 2026-01-14 23:44:26.492 UTC [1] LOG:  starting PostgreSQL 15.15 (Debian 15.15-1.pgdg13+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
-postgres-1  | 2026-01-14 23:44:26.492 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
-postgres-1  | 2026-01-14 23:44:26.492 UTC [1] LOG:  listening on IPv6 address "::", port 5432
-postgres-1  | 2026-01-14 23:44:26.498 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
-postgres-1  | 2026-01-14 23:44:26.505 UTC [30] LOG:  database system was shut down at 2026-01-14 23:44:19 UTC
-postgres-1  | 2026-01-14 23:44:26.511 UTC [1] LOG:  database system is ready to accept connections
-postgres-1  | 
-postgres-1  | PostgreSQL Database directory appears to contain a database; Skipping initialization
-postgres-1  | 
-postgres-1  | 2026-01-14 23:56:00.743 UTC [1] LOG:  starting PostgreSQL 15.15 (Debian 15.15-1.pgdg13+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
-postgres-1  | 2026-01-14 23:56:00.743 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
-postgres-1  | 2026-01-14 23:56:00.743 UTC [1] LOG:  listening on IPv6 address "::", port 5432
-postgres-1  | 2026-01-14 23:56:00.747 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
-postgres-1  | 2026-01-14 23:56:00.754 UTC [29] LOG:  database system was interrupted; last known up at 2026-01-14 23:44:26 UTC
-postgres-1  | 2026-01-14 23:56:02.046 UTC [29] LOG:  database system was not properly shut down; automatic recovery in progress
-postgres-1  | 2026-01-14 23:56:02.051 UTC [29] LOG:  redo starts at 0/19A62E8
-postgres-1  | 2026-01-14 23:56:02.051 UTC [29] LOG:  invalid record length at 0/19A6320: wanted 24, got 0
-postgres-1  | 2026-01-14 23:56:02.051 UTC [29] LOG:  redo done at 0/19A62E8 system usage: CPU: user: 0.00 s, system: 0.00 s, elapsed: 0.00 s
-postgres-1  | 2026-01-14 23:56:02.058 UTC [27] LOG:  checkpoint starting: end-of-recovery immediate wait
-postgres-1  | 2026-01-14 23:56:02.089 UTC [27] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.010 s, sync=0.005 s, total=0.034 s; sync files=2, longest=0.003 s, average=0.003 s; distance=0 kB, estimate=0 kB
-postgres-1  | 2026-01-14 23:56:02.101 UTC [1] LOG:  database system is ready to accept connections
-postgres-1  | 2026-01-14 23:56:06.578 UTC [98] ERROR:  relation "cbw3pocket3" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.578 UTC [98] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw3pocket3 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.578 UTC [95] ERROR:  relation "cbw3pocket10" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.578 UTC [95] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw3pocket10 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.578 UTC [71] ERROR:  relation "cbw3pocket11" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.578 UTC [71] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw3pocket11 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.578 UTC [137] ERROR:  relation "cbw3pocket9" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.578 UTC [137] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw3pocket9 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.578 UTC [68] ERROR:  relation "cbw3pocket13" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.578 UTC [68] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw3pocket13 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.578 UTC [72] ERROR:  relation "cbw3pocket15" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.578 UTC [72] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw3pocket15 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.578 UTC [76] ERROR:  relation "cbw3pocket16" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.578 UTC [76] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw3pocket16 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.579 UTC [84] ERROR:  relation "cbw3pocket19" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.579 UTC [84] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw3pocket19 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.579 UTC [78] ERROR:  relation "cbw3pocket17" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.579 UTC [78] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw3pocket17 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.579 UTC [96] ERROR:  relation "cbw3pocket22" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.579 UTC [96] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw3pocket22 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.579 UTC [44] ERROR:  relation "cbw3pocket32" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.579 UTC [44] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw3pocket32 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.579 UTC [80] ERROR:  relation "cbw3pocket18" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.579 UTC [80] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw3pocket18 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.579 UTC [90] ERROR:  relation "cbw3pocket1" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.579 UTC [90] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw3pocket1 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.579 UTC [88] ERROR:  relation "cbw3pocket20" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.579 UTC [88] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw3pocket20 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.580 UTC [69] ERROR:  relation "cbw3pocket14" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.580 UTC [69] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw3pocket14 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.580 UTC [129] ERROR:  relation "cbw3pocket6" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.580 UTC [129] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw3pocket6 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.581 UTC [140] ERROR:  relation "cbw3pocket23" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.581 UTC [140] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw3pocket23 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.581 UTC [42] ERROR:  relation "cbw3pocket12" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.581 UTC [42] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw3pocket12 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.586 UTC [131] ERROR:  relation "cbw3pocket26" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.586 UTC [131] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw3pocket26 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.586 UTC [126] ERROR:  relation "cbw3pocket24" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.586 UTC [126] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw3pocket24 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.586 UTC [127] ERROR:  relation "cbw3pocket5" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.586 UTC [127] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw3pocket5 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.587 UTC [94] ERROR:  relation "cbw3pocket2" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.587 UTC [94] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw3pocket2 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.587 UTC [128] ERROR:  relation "cbw3pocket25" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.587 UTC [128] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw3pocket25 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.589 UTC [125] ERROR:  relation "cbw3pocket4" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.589 UTC [125] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw3pocket4 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.590 UTC [92] ERROR:  relation "cbw3pocket21" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.590 UTC [92] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw3pocket21 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.590 UTC [134] ERROR:  relation "cbw3pocket8" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.590 UTC [134] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw3pocket8 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.590 UTC [130] ERROR:  relation "cbw3pocket7" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.590 UTC [130] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw3pocket7 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.590 UTC [132] ERROR:  relation "cbw3pocket27" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.590 UTC [132] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw3pocket27 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.591 UTC [135] ERROR:  relation "cbw3pocket29" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.591 UTC [135] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw3pocket29 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.592 UTC [133] ERROR:  relation "cbw3pocket28" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.592 UTC [133] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw3pocket28 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.594 UTC [138] ERROR:  relation "cbw3pocket31" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.594 UTC [138] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw3pocket31 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.595 UTC [136] ERROR:  relation "cbw3pocket30" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.595 UTC [136] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw3pocket30 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.598 UTC [103] ERROR:  relation "cbw2pocket8" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.598 UTC [103] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw2pocket8 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.598 UTC [65] ERROR:  relation "cbw2pocket25" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.598 UTC [65] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw2pocket25 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.598 UTC [101] ERROR:  relation "cbw2pocket3" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.598 UTC [101] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw2pocket3 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.598 UTC [77] ERROR:  relation "cbw2pocket29" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.598 UTC [77] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw2pocket29 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.598 UTC [124] ERROR:  relation "cbw2pocket2" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.598 UTC [124] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw2pocket2 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.598 UTC [82] ERROR:  relation "cbw2pocket31" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.598 UTC [82] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw2pocket31 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.599 UTC [73] ERROR:  relation "cbw2pocket26" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.599 UTC [73] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw2pocket26 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.599 UTC [119] ERROR:  relation "cbw2pocket14" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.599 UTC [119] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw2pocket14 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.599 UTC [75] ERROR:  relation "cbw2pocket28" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.599 UTC [75] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw2pocket28 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.599 UTC [74] ERROR:  relation "cbw2pocket27" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.599 UTC [74] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw2pocket27 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.598 UTC [100] ERROR:  relation "cbw2pocket16" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.598 UTC [100] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw2pocket16 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.599 UTC [111] ERROR:  relation "cbw2pocket22" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.599 UTC [111] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw2pocket22 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.600 UTC [93] ERROR:  relation "cbw2pocket1" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.600 UTC [93] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw2pocket1 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.600 UTC [110] ERROR:  relation "cbw2pocket20" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.600 UTC [110] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw2pocket20 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.602 UTC [120] ERROR:  relation "cbw2pocket13" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.602 UTC [120] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw2pocket13 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.604 UTC [107] ERROR:  relation "cbw2pocket5" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.604 UTC [107] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw2pocket5 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.604 UTC [123] ERROR:  relation "cbw2pocket12" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.604 UTC [123] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw2pocket12 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.605 UTC [121] ERROR:  relation "cbw2pocket15" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.605 UTC [121] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw2pocket15 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.605 UTC [79] ERROR:  relation "cbw2pocket30" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.605 UTC [79] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw2pocket30 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.607 UTC [118] ERROR:  relation "cbw2pocket23" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.607 UTC [118] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw2pocket23 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.607 UTC [104] ERROR:  relation "cbw2pocket4" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.607 UTC [104] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw2pocket4 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.607 UTC [109] ERROR:  relation "cbw2pocket6" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.607 UTC [109] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw2pocket6 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.610 UTC [113] ERROR:  relation "cbw2pocket10" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.610 UTC [113] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw2pocket10 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.610 UTC [112] ERROR:  relation "cbw2pocket17" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.610 UTC [112] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw2pocket17 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.610 UTC [114] ERROR:  relation "cbw2pocket21" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.610 UTC [114] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw2pocket21 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.610 UTC [117] ERROR:  relation "cbw2pocket19" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.610 UTC [117] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw2pocket19 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.611 UTC [116] ERROR:  relation "cbw2pocket11" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.611 UTC [116] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw2pocket11 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.610 UTC [122] ERROR:  relation "cbw2pocket24" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.610 UTC [122] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw2pocket24 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.615 UTC [106] ERROR:  relation "cbw2pocket9" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.615 UTC [106] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw2pocket9 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.615 UTC [115] ERROR:  relation "cbw2pocket18" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.615 UTC [115] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw2pocket18 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
-postgres-1  | 2026-01-14 23:56:06.616 UTC [139] ERROR:  relation "cbw2pocket7" does not exist at character 18
-postgres-1  | 2026-01-14 23:56:06.616 UTC [139] STATEMENT:  
-postgres-1  | 		  	INSERT INTO cbw2pocket7 (
-postgres-1  | 			  id,
-postgres-1  | 			  entered,
-postgres-1  | 			  exited,
-postgres-1  | 			  delta_seconds,
-postgres-1  | 			  product
-postgres-1  | 			) VALUES ($1, $2, $3, $4, $5)
-postgres-1  | 			  
+sub-1  | Connected to Postgres
+sub-1  | Connected to NATS, waiting for messages...
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | message read from nats
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | {2026-01-15 16:48:57 +0000 UTC 0 91 1 0 0 0 0}Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Inserted event: 0 (2026-01-15T16:48:57Z)
+sub-1  | message read from nats
+sub-1  | {2026-01-15 16:49:02 +0000 UTC 1 65 1 0 0 1 0}Connected to Postgres
+sub-1  | 2026/01/15 05:46:15 emitting msg to cbw1pocket1Ch {2026-01-15 16:49:02 +0000 UTC 1 65 1 0 0 1 0}
+sub-1  | 2026/01/15 05:46:15 cbw1pocket1  loop received msg:  {d963aa4e-0cd6-43eb-baca-6bfff006453e 1 1 65 2026-01-15 16:49:02 +0000 UTC 0001-01-01 00:00:00 +0000 UTC 0s}
+sub-1  | 2026/01/15 05:46:15 cbw1pocket1  current:  {d963aa4e-0cd6-43eb-baca-6bfff006453e 1 2 65 2026-01-15 16:49:02 +0000 UTC 0001-01-01 00:00:00 +0000 UTC 0s}
+sub-1  | 2026/01/15 05:46:15 cbw1pocket1  prev:  {00000000-0000-0000-0000-000000000000 0 0 0 0001-01-01 00:00:00 +0000 UTC 2026-01-15 16:49:02 +0000 UTC 2562047h47m16.854775807s}
+sub-1  | 2026/01/15 05:46:15 not writing to database  cbw1pocket1 
+sub-1  |  maybe curr failed:  {d963aa4e-0cd6-43eb-baca-6bfff006453e 1 2 65 2026-01-15 16:49:02 +0000 UTC 0001-01-01 00:00:00 +0000 UTC 0s} 
+sub-1  | maybe prev failed:  {00000000-0000-0000-0000-000000000000 0 0 0 0001-01-01 00:00:00 +0000 UTC 2026-01-15 16:49:02 +0000 UTC 2562047h47m16.854775807s}
+sub-1  | 2026/01/15 05:46:15 
+sub-1  |  final status before next message arrives: 
+sub-1  | curr:  {d963aa4e-0cd6-43eb-baca-6bfff006453e 1 2 65 2026-01-15 16:49:02 +0000 UTC 0001-01-01 00:00:00 +0000 UTC 0s} 
+sub-1  | prev:  {d963aa4e-0cd6-43eb-baca-6bfff006453e 1 2 65 2026-01-15 16:49:02 +0000 UTC 2026-01-15 16:49:02 +0000 UTC 2562047h47m16.854775807s}
+sub-1  | Inserted event: 1 (2026-01-15T16:49:02Z)
+sub-1  | message read from nats
+sub-1  | {2026-01-15 16:52:05 +0000 UTC 2 44 1 0 0 2 0}Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | 2026/01/15 05:46:15 emitting msg to cbw2pocket1Ch {2026-01-15 16:52:05 +0000 UTC 2 44 1 0 0 2 0}
+sub-1  | 2026/01/15 05:46:15 cbw2pocket1  loop received msg:  {9f4eeec1-b91d-473d-9290-b601f8f0d982 2 1 44 2026-01-15 16:52:05 +0000 UTC 0001-01-01 00:00:00 +0000 UTC 0s}
+sub-1  | 2026/01/15 05:46:15 cbw2pocket1  current:  {9f4eeec1-b91d-473d-9290-b601f8f0d982 2 2 44 2026-01-15 16:52:05 +0000 UTC 0001-01-01 00:00:00 +0000 UTC 0s}
+sub-1  | 2026/01/15 05:46:15 cbw2pocket1  prev:  {00000000-0000-0000-0000-000000000000 0 0 0 0001-01-01 00:00:00 +0000 UTC 2026-01-15 16:52:05 +0000 UTC 2562047h47m16.854775807s}
+sub-1  | 2026/01/15 05:46:15 not writing to database  cbw2pocket1 
+sub-1  |  maybe curr failed:  {9f4eeec1-b91d-473d-9290-b601f8f0d982 2 2 44 2026-01-15 16:52:05 +0000 UTC 0001-01-01 00:00:00 +0000 UTC 0s} 
+sub-1  | maybe prev failed:  {00000000-0000-0000-0000-000000000000 0 0 0 0001-01-01 00:00:00 +0000 UTC 2026-01-15 16:52:05 +0000 UTC 2562047h47m16.854775807s}
+sub-1  | 2026/01/15 05:46:15 
+sub-1  |  final status before next message arrives: 
+sub-1  | curr:  {9f4eeec1-b91d-473d-9290-b601f8f0d982 2 2 44 2026-01-15 16:52:05 +0000 UTC 0001-01-01 00:00:00 +0000 UTC 0s} 
+sub-1  | prev:  {9f4eeec1-b91d-473d-9290-b601f8f0d982 2 2 44 2026-01-15 16:52:05 +0000 UTC 2026-01-15 16:52:05 +0000 UTC 2562047h47m16.854775807s}
+sub-1  | Inserted event: 2 (2026-01-15T16:52:05Z)
+sub-1  | message read from nats
+sub-1  | {2026-01-15 16:52:22 +0000 UTC 0 91 1 0 0 0 0}Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Inserted event: 0 (2026-01-15T16:52:22Z)
+sub-1  | message read from nats
+sub-1  | {2026-01-15 16:52:45 +0000 UTC 5 42 1 0 0 5 0}Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Inserted event: 5 (2026-01-15T16:52:45Z)
+sub-1  | message read from nats
+sub-1  | 2026/01/15 05:46:15 emitting msg to cbw3pocket1Ch {2026-01-15 16:52:45 +0000 UTC 5 42 1 0 0 5 0}
+sub-1  | 2026/01/15 05:46:15 cbw3pocket1  loop received msg:  {7665140b-9b2c-499d-a3eb-4adff32fe55b 3 1 42 2026-01-15 16:52:45 +0000 UTC 0001-01-01 00:00:00 +0000 UTC 0s}
+sub-1  | 2026/01/15 05:46:15 cbw3pocket1  current:  {7665140b-9b2c-499d-a3eb-4adff32fe55b 3 2 42 2026-01-15 16:52:45 +0000 UTC 0001-01-01 00:00:00 +0000 UTC 0s}
+sub-1  | 2026/01/15 05:46:15 cbw3pocket1  prev:  {00000000-0000-0000-0000-000000000000 0 0 0 0001-01-01 00:00:00 +0000 UTC 2026-01-15 16:52:45 +0000 UTC 2562047h47m16.854775807s}
+sub-1  | 2026/01/15 05:46:15 not writing to database  cbw3pocket1 
+sub-1  |  maybe curr failed:  {7665140b-9b2c-499d-a3eb-4adff32fe55b 3 2 42 2026-01-15 16:52:45 +0000 UTC 0001-01-01 00:00:00 +0000 UTC 0s} 
+sub-1  | maybe prev failed:  {00000000-0000-0000-0000-000000000000 0 0 0 0001-01-01 00:00:00 +0000 UTC 2026-01-15 16:52:45 +0000 UTC 2562047h47m16.854775807s}
+sub-1  | 2026/01/15 05:46:15 
+sub-1  |  final status before next message arrives: 
+sub-1  | curr:  {7665140b-9b2c-499d-a3eb-4adff32fe55b 3 2 42 2026-01-15 16:52:45 +0000 UTC 0001-01-01 00:00:00 +0000 UTC 0s} 
+sub-1  | prev:  {7665140b-9b2c-499d-a3eb-4adff32fe55b 3 2 42 2026-01-15 16:52:45 +0000 UTC 2026-01-15 16:52:45 +0000 UTC 2562047h47m16.854775807s}
+sub-1  | 2026/01/15 05:46:15 emitting msg to cbw1pocket1Ch {2026-01-15 16:53:03 +0000 UTC 1 65 1 0 0 1 0}
+sub-1  | 2026/01/15 05:46:15 cbw1pocket1  loop received msg:  {ea58f0fa-187d-4f38-8aad-78b260b0a33a 1 1 65 2026-01-15 16:53:03 +0000 UTC 0001-01-01 00:00:00 +0000 UTC 0s}
+sub-1  | 2026/01/15 05:46:15 cbw1pocket1  current:  {ea58f0fa-187d-4f38-8aad-78b260b0a33a 1 2 65 2026-01-15 16:53:03 +0000 UTC 0001-01-01 00:00:00 +0000 UTC 0s}
+sub-1  | 2026/01/15 05:46:15 cbw1pocket1  prev:  {d963aa4e-0cd6-43eb-baca-6bfff006453e 1 2 65 2026-01-15 16:49:02 +0000 UTC 2026-01-15 16:53:03 +0000 UTC 4m1s}
+sub-1  | 2026/01/15 05:46:15 cbw1pocket1  emitting:  {d963aa4e-0cd6-43eb-baca-6bfff006453e 1 2 65 2026-01-15 16:49:02 +0000 UTC 2026-01-15 16:53:03 +0000 UTC 4m1s}
+sub-1  | 2026/01/15 05:46:15 cbw1pocket2  loop received msg:  {d963aa4e-0cd6-43eb-baca-6bfff006453e 1 2 65 2026-01-15 16:49:02 +0000 UTC 2026-01-15 16:53:03 +0000 UTC 4m1s}
+sub-1  | {2026-01-15 16:53:03 +0000 UTC 1 65 1 0 0 1 0}Inserted event: 1 (2026-01-15T16:53:03Z)
+sub-1  | message read from nats
+sub-1  | 2026/01/15 05:46:15 cbw1pocket2  current:  {d963aa4e-0cd6-43eb-baca-6bfff006453e 1 3 65 2026-01-15 16:49:02 +0000 UTC 0001-01-01 00:00:00 +0000 UTC 0s}
+sub-1  | 2026/01/15 05:46:15 cbw1pocket2  prev:  {00000000-0000-0000-0000-000000000000 0 0 0 0001-01-01 00:00:00 +0000 UTC 2026-01-15 16:49:02 +0000 UTC 2562047h47m16.854775807s}
+sub-1  | 2026/01/15 05:46:15 not writing to database  cbw1pocket2 
+sub-1  |  maybe curr failed:  {d963aa4e-0cd6-43eb-baca-6bfff006453e 1 3 65 2026-01-15 16:49:02 +0000 UTC 0001-01-01 00:00:00 +0000 UTC 0s} 
+sub-1  | maybe prev failed:  {00000000-0000-0000-0000-000000000000 0 0 0 0001-01-01 00:00:00 +0000 UTC 2026-01-15 16:49:02 +0000 UTC 2562047h47m16.854775807s}
+sub-1  | 2026/01/15 05:46:15 
+sub-1  |  final status before next message arrives: 
+sub-1  | curr:  {d963aa4e-0cd6-43eb-baca-6bfff006453e 1 3 65 2026-01-15 16:49:02 +0000 UTC 0001-01-01 00:00:00 +0000 UTC 0s} 
+sub-1  | prev:  {d963aa4e-0cd6-43eb-baca-6bfff006453e 1 3 65 2026-01-15 16:49:02 +0000 UTC 2026-01-15 16:49:02 +0000 UTC 2562047h47m16.854775807s}
+sub-1  | {2026-01-15 16:55:25 +0000 UTC 0 91 1 0 0 0 0}Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | 2026/01/15 05:46:15 db insert error: pq: value "241000000000" is out of range for type integer
+sub-1  | Inserted event: 0 (2026-01-15T16:55:25Z)
+sub-1  | message read from nats
+sub-1  | 2026/01/15 05:46:15 emitting msg to cbw3pocket1Ch {2026-01-15 16:57:31 +0000 UTC 5 42 1 0 0 5 0}
+sub-1  | 2026/01/15 05:46:15 cbw3pocket1  loop received msg:  {4a116bd5-38be-4e93-8972-433a9f3df7af 3 1 42 2026-01-15 16:57:31 +0000 UTC 0001-01-01 00:00:00 +0000 UTC 0s}
+sub-1  | 2026/01/15 05:46:15 cbw3pocket1  current:  {4a116bd5-38be-4e93-8972-433a9f3df7af 3 2 42 2026-01-15 16:57:31 +0000 UTC 0001-01-01 00:00:00 +0000 UTC 0s}
+sub-1  | 2026/01/15 05:46:15 cbw3pocket1  prev:  {7665140b-9b2c-499d-a3eb-4adff32fe55b 3 2 42 2026-01-15 16:52:45 +0000 UTC 2026-01-15 16:57:31 +0000 UTC 4m46s}
+sub-1  | 2026/01/15 05:46:15 cbw3pocket1  emitting:  {7665140b-9b2c-499d-a3eb-4adff32fe55b 3 2 42 2026-01-15 16:52:45 +0000 UTC 2026-01-15 16:57:31 +0000 UTC 4m46s}
+sub-1  | 2026/01/15 05:46:15 cbw3pocket2  loop received msg:  {7665140b-9b2c-499d-a3eb-4adff32fe55b 3 2 42 2026-01-15 16:52:45 +0000 UTC 2026-01-15 16:57:31 +0000 UTC 4m46s}
+sub-1  | 2026/01/15 05:46:15 cbw3pocket2  current:  {7665140b-9b2c-499d-a3eb-4adff32fe55b 3 3 42 2026-01-15 16:52:45 +0000 UTC 0001-01-01 00:00:00 +0000 UTC 0s}
+sub-1  | 2026/01/15 05:46:15 cbw3pocket2  prev:  {00000000-0000-0000-0000-000000000000 0 0 0 0001-01-01 00:00:00 +0000 UTC 2026-01-15 16:52:45 +0000 UTC 2562047h47m16.854775807s}
+sub-1  | 2026/01/15 05:46:15 not writing to database  cbw3pocket2 
+sub-1  |  maybe curr failed:  {7665140b-9b2c-499d-a3eb-4adff32fe55b 3 3 42 2026-01-15 16:52:45 +0000 UTC 0001-01-01 00:00:00 +0000 UTC 0s} 
+sub-1  | maybe prev failed:  {00000000-0000-0000-0000-000000000000 0 0 0 0001-01-01 00:00:00 +0000 UTC 2026-01-15 16:52:45 +0000 UTC 2562047h47m16.854775807s}
+sub-1  | 2026/01/15 05:46:15 
+sub-1  |  final status before next message arrives: 
+sub-1  | curr:  {7665140b-9b2c-499d-a3eb-4adff32fe55b 3 3 42 2026-01-15 16:52:45 +0000 UTC 0001-01-01 00:00:00 +0000 UTC 0s} 
+sub-1  | prev:  {7665140b-9b2c-499d-a3eb-4adff32fe55b 3 3 42 2026-01-15 16:52:45 +0000 UTC 2026-01-15 16:52:45 +0000 UTC 2562047h47m16.854775807s}
+sub-1  | {2026-01-15 16:57:31 +0000 UTC 5 42 1 0 0 5 0}Inserted event: 5 (2026-01-15T16:57:31Z)
+sub-1  | message read from nats
+sub-1  | Connected to Postgres
+sub-1  | {2026-01-15 16:58:52 +0000 UTC 0 91 1 0 0 0 0}Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | 2026/01/15 05:46:15 db insert error: pq: value "286000000000" is out of range for type integer
+sub-1  | Inserted event: 0 (2026-01-15T16:58:52Z)
+sub-1  | message read from nats
+sub-1  | {2026-01-15 17:01:17 +0000 UTC 0 5 1 0 0 0 0}Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Inserted event: 0 (2026-01-15T17:01:17Z)
+sub-1  | message read from nats
+sub-1  | {2026-01-15 17:01:27 +0000 UTC 0 91 1 0 0 0 0}Connected to Postgres
+sub-1  | Connected to Postgres
+sub-1  | Inserted event: 0 (2026-01-15T17:01:27Z)
+sub-1  | Connected to Postgres
+sub-1  | message read from nats
+sub-1  | {2026-01-15 17:01:53 +0000 UTC 0 3 1 0 0 0 0}Connected to Postgres
+sub-1  | Inserted event: 0 (2026-01-15T17:01:53Z)
+sub-1  | message read from nats
+sub-1  | {2026-01-15 17:02:53 +0000 UTC 2 44 1 0 0 2 0}Inserted event: 2 (2026-01-15T17:02:53Z)
+sub-1  | message read from nats
+sub-1  | 2026/01/15 05:46:15 emitting msg to cbw2pocket1Ch {2026-01-15 17:02:53 +0000 UTC 2 44 1 0 0 2 0}
+sub-1  | 2026/01/15 05:46:15 cbw2pocket1  loop received msg:  {521e86d1-0375-45d0-bdc1-961786aae18f 2 1 44 2026-01-15 17:02:53 +0000 UTC 0001-01-01 00:00:00 +0000 UTC 0s}
+sub-1  | 2026/01/15 05:46:15 cbw2pocket1  current:  {521e86d1-0375-45d0-bdc1-961786aae18f 2 2 44 2026-01-15 17:02:53 +0000 UTC 0001-01-01 00:00:00 +0000 UTC 0s}
+sub-1  | 2026/01/15 05:46:15 cbw2pocket1  prev:  {9f4eeec1-b91d-473d-9290-b601f8f0d982 2 2 44 2026-01-15 16:52:05 +0000 UTC 2026-01-15 17:02:53 +0000 UTC 10m48s}
+sub-1  | 2026/01/15 05:46:15 cbw2pocket1  emitting:  {9f4eeec1-b91d-473d-9290-b601f8f0d982 2 2 44 2026-01-15 16:52:05 +0000 UTC 2026-01-15 17:02:53 +0000 UTC 10m48s}
+sub-1  | 2026/01/15 05:46:15 cbw2pocket2  loop received msg:  {9f4eeec1-b91d-473d-9290-b601f8f0d982 2 2 44 2026-01-15 16:52:05 +0000 UTC 2026-01-15 17:02:53 +0000 UTC 10m48s}
+sub-1  | 2026/01/15 05:46:15 cbw2pocket2  current:  {9f4eeec1-b91d-473d-9290-b601f8f0d982 2 3 44 2026-01-15 16:52:05 +0000 UTC 0001-01-01 00:00:00 +0000 UTC 0s}
+sub-1  | 2026/01/15 05:46:15 cbw2pocket2  prev:  {00000000-0000-0000-0000-000000000000 0 0 0 0001-01-01 00:00:00 +0000 UTC 2026-01-15 16:52:05 +0000 UTC 2562047h47m16.854775807s}
+sub-1  | 2026/01/15 05:46:15 not writing to database  cbw2pocket2 
+sub-1  |  maybe curr failed:  {9f4eeec1-b91d-473d-9290-b601f8f0d982 2 3 44 2026-01-15 16:52:05 +0000 UTC 0001-01-01 00:00:00 +0000 UTC 0s} 
+sub-1  | maybe prev failed:  {00000000-0000-0000-0000-000000000000 0 0 0 0001-01-01 00:00:00 +0000 UTC 2026-01-15 16:52:05 +0000 UTC 2562047h47m16.854775807s}
+sub-1  | 2026/01/15 05:46:15 
+sub-1  |  final status before next message arrives: 
+sub-1  | curr:  {9f4eeec1-b91d-473d-9290-b601f8f0d982 2 3 44 2026-01-15 16:52:05 +0000 UTC 0001-01-01 00:00:00 +0000 UTC 0s} 
+sub-1  | prev:  {9f4eeec1-b91d-473d-9290-b601f8f0d982 2 3 44 2026-01-15 16:52:05 +0000 UTC 2026-01-15 16:52:05 +0000 UTC 2562047h47m16.854775807s}
+sub-1  | 2026/01/15 05:46:15 db insert error: pq: value "648000000000" is out of range for type integer
+sub-1  | 2026/01/15 05:46:15 emitting msg to cbw1pocket1Ch {2026-01-15 17:03:45 +0000 UTC 1 65 1 0 0 1 0}
+sub-1  | {2026-01-15 17:03:45 +0000 UTC 1 65 1 0 0 1 0}Inserted event: 1 (2026-01-15T17:03:45Z)
+sub-1  | message read from nats
+sub-1  | {2026-01-15 17:04:07 +0000 UTC 5 42 1 0 0 5 0}Inserted event: 5 (2026-01-15T17:04:07Z)
+sub-1  | message read from nats
+sub-1  | 2026/01/15 05:46:15 emitting msg to cbw3pocket1Ch {2026-01-15 17:04:07 +0000 UTC 5 42 1 0 0 5 0}
+sub-1  | 2026/01/15 05:46:15 emitting msg to cbw2pocket1Ch {2026-01-15 17:05:12 +0000 UTC 2 44 1 0 0 2 0}
+sub-1  | {2026-01-15 17:05:12 +0000 UTC 2 44 1 0 0 2 0}Inserted event: 2 (2026-01-15T17:05:12Z)
+sub-1  | message read from nats
+sub-1  | {2026-01-15 17:05:16 +0000 UTC 0 91 1 0 0 0 0}Inserted event: 0 (2026-01-15T17:05:16Z)
+sub-1  | message read from nats
+sub-1  | {2026-01-15 17:05:29 +0000 UTC 0 3 1 0 0 0 0}Inserted event: 0 (2026-01-15T17:05:29Z)
+sub-1  | message read from nats
+sub-1  | 2026/01/15 05:46:15 emitting msg to cbw3pocket1Ch {2026-01-15 17:06:00 +0000 UTC 5 3 1 0 0 5 0}
