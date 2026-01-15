@@ -93,7 +93,7 @@ func liveStateUpdater(incomingCh <-chan Load, tableName string) {
 		    context.Background(),
 		    query,
 		    id,
-		    entered,
+		    entered.Unix(),
 		    elapsed,
 		    product,
 		)
@@ -186,8 +186,8 @@ func pocketStatusUpdater(
 	      context.Background(),
 	      query,
 	      prev.UUID,
-	      prev.Entered,
-	      prev.Exited,
+	      prev.Entered.Unix(),
+	      prev.Exited.Unix(),
 	      prev.Delta,
 	      prev.Product,
 	  )
