@@ -196,7 +196,7 @@ func pocketStatusUpdater(
 	      return
 	  }
 
-	  log.Println("writing to database %s\n%v", tableName, prev)
+	  log.Println("writing to database ", tableName, "\n", prev)
 	}
     }
 }
