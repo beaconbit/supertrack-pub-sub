@@ -39,7 +39,7 @@ type Load struct {
   Product	int
   Entered 	time.Time
   Exited 	time.Time
-  Delta 	time.Duration
+  Delta 	int
 }
 
 func liveStateUpdater(incomingCh <-chan Load, tableName string) {
@@ -152,7 +152,8 @@ func pocketStatusUpdater(
 	  curr.Entered = e.Entered
 
 	  prev.Exited = curr.Entered
-	  prev.Delta = prev.Exited.Sub(prev.Entered)
+	  prev.Delta = int(prev.Exited.Sub(prev.Entered) / time.Second)
+
 
 	  log.Println(tableName, " current: ", curr)
 	  log.Println(tableName, " prev: ", prev)
@@ -164,7 +165,7 @@ func pocketStatusUpdater(
 	      temp.Product = prev.Product
 	      temp.Entered = prev.Entered
 	      temp.Exited = curr.Entered
-	      temp.Delta = curr.Entered.Sub(prev.Entered)
+	      temp.Delta = int(curr.Entered.Sub(prev.Entered) / time.Second)
 	      // emit message to next channel
 	      log.Println(tableName, " emitting: ", temp)
 	      outgoingCh <- temp
@@ -192,7 +193,7 @@ func pocketStatusUpdater(
 		  log.Println("db insert error:", err)
 		  return
 	      }
-	      log.Println("writing to database ", tableName, "\n", temp)
+	      log.Println("success writing to database ", tableName, "\n", temp)
 	  } else {
 		  log.Println("not writing to database ", tableName, "\n", "maybe curr failed: ", curr, "\nmaybe prev failed: ", prev)
 	  }
