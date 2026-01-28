@@ -1,0 +1,594 @@
+cols:  [{product 16811 5 23 4 -1 1} {entered 0 0 1184 8 -1 1} {delta_seconds 16811 4 23 4 -1 1} {exited 0 0 1184 8 -1 1}]
+writing header:  product
+writing header:  entered
+writing header:  delta_seconds
+writing header:  exited
+deltaSeconds:  253 true 253
+type=int32, value=253
+waitTime:  103
+deltaSeconds:  127 true 127
+type=int32, value=127
+waitTime:  -23
+deltaSeconds:  115 true 115
+type=int32, value=115
+waitTime:  -35
+deltaSeconds:  127 true 127
+type=int32, value=127
+waitTime:  -23
+deltaSeconds:  128 true 128
+type=int32, value=128
+waitTime:  -22
+deltaSeconds:  720 true 720
+type=int32, value=720
+waitTime:  570
+deltaSeconds:  125 true 125
+type=int32, value=125
+waitTime:  -25
+deltaSeconds:  112 true 112
+type=int32, value=112
+waitTime:  -38
+deltaSeconds:  2076 true 2076
+type=int32, value=2076
+waitTime:  1926
+deltaSeconds:  475 true 475
+type=int32, value=475
+waitTime:  325
+deltaSeconds:  684 true 684
+type=int32, value=684
+waitTime:  534
+deltaSeconds:  166 true 166
+type=int32, value=166
+waitTime:  16
+deltaSeconds:  189 true 189
+type=int32, value=189
+waitTime:  39
+deltaSeconds:  162 true 162
+type=int32, value=162
+waitTime:  12
+deltaSeconds:  129 true 129
+type=int32, value=129
+waitTime:  -21
+deltaSeconds:  127 true 127
+type=int32, value=127
+waitTime:  -23
+deltaSeconds:  127 true 127
+type=int32, value=127
+waitTime:  -23
+deltaSeconds:  525 true 525
+type=int32, value=525
+waitTime:  375
+deltaSeconds:  173 true 173
+type=int32, value=173
+waitTime:  23
+deltaSeconds:  127 true 127
+type=int32, value=127
+waitTime:  -23
+deltaSeconds:  0 true 0
+type=int32, value=0
+waitTime:  -150
+deltaSeconds:  213 true 213
+type=int32, value=213
+waitTime:  63
+deltaSeconds:  128 true 128
+type=int32, value=128
+waitTime:  -22
+deltaSeconds:  503 true 503
+type=int32, value=503
+waitTime:  353
+deltaSeconds:  126 true 126
+type=int32, value=126
+waitTime:  -24
+deltaSeconds:  403 true 403
+type=int32, value=403
+waitTime:  253
+deltaSeconds:  185 true 185
+type=int32, value=185
+waitTime:  35
+deltaSeconds:  262 true 262
+type=int32, value=262
+waitTime:  112
+deltaSeconds:  178 true 178
+type=int32, value=178
+waitTime:  28
+deltaSeconds:  113 true 113
+type=int32, value=113
+waitTime:  -37
+deltaSeconds:  115 true 115
+type=int32, value=115
+waitTime:  -35
+deltaSeconds:  465 true 465
+type=int32, value=465
+waitTime:  315
+deltaSeconds:  152 true 152
+type=int32, value=152
+waitTime:  2
+deltaSeconds:  152 true 152
+type=int32, value=152
+waitTime:  2
+deltaSeconds:  127 true 127
+type=int32, value=127
+waitTime:  -23
+deltaSeconds:  139 true 139
+type=int32, value=139
+waitTime:  -11
+deltaSeconds:  809 true 809
+type=int32, value=809
+waitTime:  659
+deltaSeconds:  164 true 164
+type=int32, value=164
+waitTime:  14
+deltaSeconds:  116 true 116
+type=int32, value=116
+waitTime:  -34
+deltaSeconds:  265 true 265
+type=int32, value=265
+waitTime:  115
+deltaSeconds:  442 true 442
+type=int32, value=442
+waitTime:  292
+deltaSeconds:  153 true 153
+type=int32, value=153
+waitTime:  3
+deltaSeconds:  113 true 113
+type=int32, value=113
+waitTime:  -37
+deltaSeconds:  101 true 101
+type=int32, value=101
+waitTime:  -49
+deltaSeconds:  351 true 351
+type=int32, value=351
+waitTime:  201
+deltaSeconds:  101 true 101
+type=int32, value=101
+waitTime:  -49
+deltaSeconds:  134 true 134
+type=int32, value=134
+waitTime:  -16
+deltaSeconds:  139 true 139
+type=int32, value=139
+waitTime:  -11
+deltaSeconds:  178 true 178
+type=int32, value=178
+waitTime:  28
+deltaSeconds:  14572 true 14572
+type=int32, value=14572
+waitTime:  14422
+deltaSeconds:  14572 true 14572
+type=int32, value=14572
+waitTime:  14422
+deltaSeconds:  125 true 125
+type=int32, value=125
+waitTime:  -25
+deltaSeconds:  114 true 114
+type=int32, value=114
+waitTime:  -36
+deltaSeconds:  115 true 115
+type=int32, value=115
+waitTime:  -35
+deltaSeconds:  129 true 129
+type=int32, value=129
+waitTime:  -21
+deltaSeconds:  126 true 126
+type=int32, value=126
+waitTime:  -24
+deltaSeconds:  127 true 127
+type=int32, value=127
+waitTime:  -23
+deltaSeconds:  342 true 342
+type=int32, value=342
+waitTime:  192
+deltaSeconds:  253 true 253
+type=int32, value=253
+waitTime:  103
+deltaSeconds:  114 true 114
+type=int32, value=114
+waitTime:  -36
+deltaSeconds:  126 true 126
+type=int32, value=126
+waitTime:  -24
+deltaSeconds:  140 true 140
+type=int32, value=140
+waitTime:  -10
+deltaSeconds:  128 true 128
+type=int32, value=128
+waitTime:  -22
+deltaSeconds:  446 true 446
+type=int32, value=446
+waitTime:  296
+deltaSeconds:  115 true 115
+type=int32, value=115
+waitTime:  -35
+deltaSeconds:  161 true 161
+type=int32, value=161
+waitTime:  11
+deltaSeconds:  133 true 133
+type=int32, value=133
+waitTime:  -17
+deltaSeconds:  102 true 102
+type=int32, value=102
+waitTime:  -48
+deltaSeconds:  239 true 239
+type=int32, value=239
+waitTime:  89
+deltaSeconds:  104 true 104
+type=int32, value=104
+waitTime:  -46
+deltaSeconds:  134 true 134
+type=int32, value=134
+waitTime:  -16
+deltaSeconds:  137 true 137
+type=int32, value=137
+waitTime:  -13
+deltaSeconds:  518 true 518
+type=int32, value=518
+waitTime:  368
+deltaSeconds:  603 true 603
+type=int32, value=603
+waitTime:  453
+deltaSeconds:  172 true 172
+type=int32, value=172
+waitTime:  22
+deltaSeconds:  128 true 128
+type=int32, value=128
+waitTime:  -22
+deltaSeconds:  126 true 126
+type=int32, value=126
+waitTime:  -24
+deltaSeconds:  201 true 201
+type=int32, value=201
+waitTime:  51
+deltaSeconds:  123 true 123
+type=int32, value=123
+waitTime:  -27
+deltaSeconds:  331 true 331
+type=int32, value=331
+waitTime:  181
+deltaSeconds:  126 true 126
+type=int32, value=126
+waitTime:  -24
+deltaSeconds:  128 true 128
+type=int32, value=128
+waitTime:  -22
+deltaSeconds:  128 true 128
+type=int32, value=128
+waitTime:  -22
+deltaSeconds:  201 true 201
+type=int32, value=201
+waitTime:  51
+deltaSeconds:  201 true 201
+type=int32, value=201
+waitTime:  51
+deltaSeconds:  151 true 151
+type=int32, value=151
+waitTime:  1
+deltaSeconds:  151 true 151
+type=int32, value=151
+waitTime:  1
+deltaSeconds:  216 true 216
+type=int32, value=216
+waitTime:  66
+deltaSeconds:  216 true 216
+type=int32, value=216
+waitTime:  66
+deltaSeconds:  277 true 277
+type=int32, value=277
+waitTime:  127
+deltaSeconds:  277 true 277
+type=int32, value=277
+waitTime:  127
+deltaSeconds:  115 true 115
+type=int32, value=115
+waitTime:  -35
+deltaSeconds:  115 true 115
+type=int32, value=115
+waitTime:  -35
+deltaSeconds:  125 true 125
+type=int32, value=125
+waitTime:  -25
+deltaSeconds:  125 true 125
+type=int32, value=125
+waitTime:  -25
+deltaSeconds:  240 true 240
+type=int32, value=240
+waitTime:  90
+deltaSeconds:  240 true 240
+type=int32, value=240
+waitTime:  90
+deltaSeconds:  123 true 123
+type=int32, value=123
+waitTime:  -27
+deltaSeconds:  123 true 123
+type=int32, value=123
+waitTime:  -27
+deltaSeconds:  -12460 true -12460
+type=int32, value=-12460
+waitTime:  -12610
+deltaSeconds:  -12460 true -12460
+type=int32, value=-12460
+waitTime:  -12610
+deltaSeconds:  228 true 228
+type=int32, value=228
+waitTime:  78
+deltaSeconds:  228 true 228
+type=int32, value=228
+waitTime:  78
+deltaSeconds:  360 true 360
+type=int32, value=360
+waitTime:  210
+deltaSeconds:  360 true 360
+type=int32, value=360
+waitTime:  210
+deltaSeconds:  177 true 177
+type=int32, value=177
+waitTime:  27
+deltaSeconds:  177 true 177
+type=int32, value=177
+waitTime:  27
+deltaSeconds:  114 true 114
+type=int32, value=114
+waitTime:  -36
+deltaSeconds:  114 true 114
+type=int32, value=114
+waitTime:  -36
+deltaSeconds:  125 true 125
+type=int32, value=125
+waitTime:  -25
+deltaSeconds:  125 true 125
+type=int32, value=125
+waitTime:  -25
+deltaSeconds:  128 true 128
+type=int32, value=128
+waitTime:  -22
+deltaSeconds:  128 true 128
+type=int32, value=128
+waitTime:  -22
+deltaSeconds:  125 true 125
+type=int32, value=125
+waitTime:  -25
+deltaSeconds:  125 true 125
+type=int32, value=125
+waitTime:  -25
+deltaSeconds:  539 true 539
+type=int32, value=539
+waitTime:  389
+deltaSeconds:  539 true 539
+type=int32, value=539
+waitTime:  389
+deltaSeconds:  117 true 117
+type=int32, value=117
+waitTime:  -33
+deltaSeconds:  122 true 122
+type=int32, value=122
+waitTime:  -28
+deltaSeconds:  115 true 115
+type=int32, value=115
+waitTime:  -35
+deltaSeconds:  3802 true 3802
+type=int32, value=3802
+waitTime:  3652
+deltaSeconds:  102 true 102
+type=int32, value=102
+waitTime:  -48
+deltaSeconds:  116 true 116
+type=int32, value=116
+waitTime:  -34
+deltaSeconds:  110 true 110
+type=int32, value=110
+waitTime:  -40
+deltaSeconds:  340 true 340
+type=int32, value=340
+waitTime:  190
+deltaSeconds:  125 true 125
+type=int32, value=125
+waitTime:  -25
+deltaSeconds:  178 true 178
+type=int32, value=178
+waitTime:  28
+deltaSeconds:  562 true 562
+type=int32, value=562
+waitTime:  412
+deltaSeconds:  126 true 126
+type=int32, value=126
+waitTime:  -24
+deltaSeconds:  129 true 129
+type=int32, value=129
+waitTime:  -21
+deltaSeconds:  126 true 126
+type=int32, value=126
+waitTime:  -24
+deltaSeconds:  133 true 133
+type=int32, value=133
+waitTime:  -17
+deltaSeconds:  6110 true 6110
+type=int32, value=6110
+waitTime:  5960
+deltaSeconds:  100 true 100
+type=int32, value=100
+waitTime:  -50
+deltaSeconds:  128 true 128
+type=int32, value=128
+waitTime:  -22
+deltaSeconds:  230 true 230
+type=int32, value=230
+waitTime:  80
+deltaSeconds:  150 true 150
+type=int32, value=150
+waitTime:  0
+deltaSeconds:  115 true 115
+type=int32, value=115
+waitTime:  -35
+deltaSeconds:  123 true 123
+type=int32, value=123
+waitTime:  -27
+deltaSeconds:  127 true 127
+type=int32, value=127
+waitTime:  -23
+deltaSeconds:  123 true 123
+type=int32, value=123
+waitTime:  -27
+deltaSeconds:  127 true 127
+type=int32, value=127
+waitTime:  -23
+deltaSeconds:  115 true 115
+type=int32, value=115
+waitTime:  -35
+deltaSeconds:  114 true 114
+type=int32, value=114
+waitTime:  -36
+deltaSeconds:  476 true 476
+type=int32, value=476
+waitTime:  326
+deltaSeconds:  175 true 175
+type=int32, value=175
+waitTime:  25
+deltaSeconds:  391 true 391
+type=int32, value=391
+waitTime:  241
+deltaSeconds:  127 true 127
+type=int32, value=127
+waitTime:  -23
+deltaSeconds:  126 true 126
+type=int32, value=126
+waitTime:  -24
+deltaSeconds:  141 true 141
+type=int32, value=141
+waitTime:  -9
+deltaSeconds:  216 true 216
+type=int32, value=216
+waitTime:  66
+deltaSeconds:  236 true 236
+type=int32, value=236
+waitTime:  86
+deltaSeconds:  593 true 593
+type=int32, value=593
+waitTime:  443
+deltaSeconds:  242 true 242
+type=int32, value=242
+waitTime:  92
+deltaSeconds:  152 true 152
+type=int32, value=152
+waitTime:  2
+deltaSeconds:  680 true 680
+type=int32, value=680
+waitTime:  530
+deltaSeconds:  153 true 153
+type=int32, value=153
+waitTime:  3
+deltaSeconds:  128 true 128
+type=int32, value=128
+waitTime:  -22
+deltaSeconds:  353 true 353
+type=int32, value=353
+waitTime:  203
+deltaSeconds:  174 true 174
+type=int32, value=174
+waitTime:  24
+deltaSeconds:  100 true 100
+type=int32, value=100
+waitTime:  -50
+deltaSeconds:  115 true 115
+type=int32, value=115
+waitTime:  -35
+deltaSeconds:  126 true 126
+type=int32, value=126
+waitTime:  -24
+deltaSeconds:  127 true 127
+type=int32, value=127
+waitTime:  -23
+deltaSeconds:  289 true 289
+type=int32, value=289
+waitTime:  139
+deltaSeconds:  514 true 514
+type=int32, value=514
+waitTime:  364
+deltaSeconds:  907 true 907
+type=int32, value=907
+waitTime:  757
+deltaSeconds:  508 true 508
+type=int32, value=508
+waitTime:  358
+deltaSeconds:  124 true 124
+type=int32, value=124
+waitTime:  -26
+deltaSeconds:  125 true 125
+type=int32, value=125
+waitTime:  -25
+deltaSeconds:  127 true 127
+type=int32, value=127
+waitTime:  -23
+deltaSeconds:  3200 true 3200
+type=int32, value=3200
+waitTime:  3050
+deltaSeconds:  127 true 127
+type=int32, value=127
+waitTime:  -23
+deltaSeconds:  127 true 127
+type=int32, value=127
+waitTime:  -23
+deltaSeconds:  126 true 126
+type=int32, value=126
+waitTime:  -24
+deltaSeconds:  2350 true 2350
+type=int32, value=2350
+waitTime:  2200
+deltaSeconds:  115 true 115
+type=int32, value=115
+waitTime:  -35
+deltaSeconds:  711 true 711
+type=int32, value=711
+waitTime:  561
+deltaSeconds:  123 true 123
+type=int32, value=123
+waitTime:  -27
+deltaSeconds:  128 true 128
+type=int32, value=128
+waitTime:  -22
+deltaSeconds:  262 true 262
+type=int32, value=262
+waitTime:  112
+deltaSeconds:  160 true 160
+type=int32, value=160
+waitTime:  10
+deltaSeconds:  191 true 191
+type=int32, value=191
+waitTime:  41
+deltaSeconds:  127 true 127
+type=int32, value=127
+waitTime:  -23
+deltaSeconds:  575 true 575
+type=int32, value=575
+waitTime:  425
+deltaSeconds:  278 true 278
+type=int32, value=278
+waitTime:  128
+deltaSeconds:  215 true 215
+type=int32, value=215
+waitTime:  65
+deltaSeconds:  128 true 128
+type=int32, value=128
+waitTime:  -22
+deltaSeconds:  514 true 514
+type=int32, value=514
+waitTime:  364
+deltaSeconds:  148 true 148
+type=int32, value=148
+waitTime:  -2
+deltaSeconds:  114 true 114
+type=int32, value=114
+waitTime:  -36
+deltaSeconds:  114 true 114
+type=int32, value=114
+waitTime:  -36
+deltaSeconds:  115 true 115
+type=int32, value=115
+waitTime:  -35
+deltaSeconds:  127 true 127
+type=int32, value=127
+waitTime:  -23
+deltaSeconds:  126 true 126
+type=int32, value=126
+waitTime:  -24
+deltaSeconds:  -43982 true -43982
+type=int32, value=-43982
+waitTime:  -44132
+finished
