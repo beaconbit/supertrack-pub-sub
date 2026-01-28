@@ -12,7 +12,8 @@ CREATE TABLE general (
 );
 
 CREATE TABLE livestatuscbw1 (
-    id uuid PRIMARY KEY,
+    unique_row_id SERIAL PRIMARY KEY,
+    id uuid,
     entered BIGINT NOT NULL,
     delta_seconds INTEGER,
     cbw INTEGER,
@@ -20,7 +21,8 @@ CREATE TABLE livestatuscbw1 (
     product INTEGER
 );
 CREATE TABLE livestatuscbw2 (
-    id uuid PRIMARY KEY,
+    unique_row_id SERIAL PRIMARY KEY,
+    id uuid,
     entered BIGINT NOT NULL,
     delta_seconds INTEGER,
     cbw INTEGER,
@@ -28,7 +30,8 @@ CREATE TABLE livestatuscbw2 (
     product INTEGER
 );
 CREATE TABLE livestatuscbw3 (
-    id uuid PRIMARY KEY,
+    unique_row_id SERIAL PRIMARY KEY,
+    id uuid,
     entered BIGINT NOT NULL,
     delta_seconds INTEGER,
     cbw INTEGER,

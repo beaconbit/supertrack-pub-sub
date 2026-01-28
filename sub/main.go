@@ -60,11 +60,13 @@ func liveStateUpdater(incomingCh <-chan Load, tableName string) {
     var entered time.Time
     var product int
     var start time.Time
+    var elapsed int
     for {
 	select {
 	case e := <-incomingCh:
+	    elapsed = 0
 	    query := fmt.Sprintf(`
-		  TRUNCATE TABLE %s,
+		  TRUNCATE TABLE %s
 		    `, tableName)
 	    _, err := db.ExecContext(context.Background(), query)
 	    if err != nil {
@@ -77,7 +79,8 @@ func liveStateUpdater(incomingCh <-chan Load, tableName string) {
 	    start = time.Now()
 	case <-ticker.C:
 	    if hasLoad {
-		elapsed := time.Since(start).Seconds()
+		fmt.Println("load status ticker increment")
+		elapsed = int(time.Since(start) / time.Second)
 		// sanity check for when the tunnel is off
 		if elapsed > 3600 { hasLoad = false }
 		query := fmt.Sprintf(`
@@ -99,9 +102,12 @@ func liveStateUpdater(incomingCh <-chan Load, tableName string) {
 		)
 		if err != nil {
 		    log.Println("db insert error:", err)
+		} else {
+		  log.Println("live status database write successful, ", id, " elapsed: ", elapsed)
 		}
 	    }
 	default:
+	    fmt.Println("no update to live status")
 	    time.Sleep(time.Second)
 	}
     }
@@ -163,12 +169,16 @@ func pocketStatusUpdater(
 	      temp.CBW = prev.CBW
 	      temp.Pocket = prev.Pocket
 	      temp.Product = prev.Product
-	      temp.Entered = prev.Entered
-	      temp.Exited = curr.Entered
-	      temp.Delta = int(curr.Entered.Sub(prev.Entered) / time.Second)
+	      temp.Entered = curr.Entered
+	      temp.Exited = time.Time{}
+	      temp.Delta = 0
 	      // emit message to next channel
 	      log.Println(tableName, " emitting: ", temp)
 	      outgoingCh <- temp
+
+	      temp.Entered = prev.Entered
+	      temp.Exited = curr.Entered
+	      temp.Delta = int(curr.Entered.Sub(prev.Entered) / time.Second)
 	      // write to database
 	      query := fmt.Sprintf(`
 		    INSERT INTO %s (
